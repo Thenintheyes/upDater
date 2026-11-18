@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>upDater</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-mark" src="icon/up.svg" alt="" />
+          <span>upDater</span>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="searchButton" type="button" aria-label="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+          </button>
+          <button class="icon-button" id="menuButton" type="button" aria-label="Main menu">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <nav class="nav-list" aria-label="Primary">
+          <button class="nav-item active" type="button" data-view="updates">
+            <svg viewBox="0 0 24 24"><path d="M20 7v5h-5"/><path d="M18.5 16A8 8 0 1 1 20 12"/></svg>
+            <span>Updates</span>
+            <span class="count-badge">8</span>
+          </button>
+        </nav>
+        <div class="sidebar-status">
+          <span class="status-dot"></span>
+          <div>
+            <strong>System up to date</strong>
+            <small>Last checked 2 min ago</small>
+          </div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content-header">
+          <div>
+            <p class="eyebrow">Software center</p>
+            <h1>Updates</h1>
+          </div>
+          <button class="check-button" id="checkButton" type="button">
+            <svg viewBox="0 0 24 24"><path d="M20 7v5h-5"/><path d="M18.5 16A8 8 0 1 1 20 12"/></svg>
+            <span>Check for updates</span>
+          </button>
+        </div>
+
+        <section class="update-summary">
+          <div class="summary-main">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
+            </div>
+            <div>
+              <h2><span id="availableCount">8</span> updates available</h2>
+              <p><span id="downloadSize">364 MB</span> total download · <span id="installSize">918 MB</span> installed</p>
+            </div>
+          </div>
+          <button class="update-all-button" id="updateAllButton" type="button">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
+            <span>Update all</span>
+          </button>
+        </section>
+
+        <div class="section-heading">
+          <h2>Available updates</h2>
+          <button class="sort-button" id="sortButton" type="button">
+            <span>Sort: Recommended</span>
+            <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+          </button>
+        </div>
+
+        <div class="update-list" id="updateList">
+          <article class="update-card" data-name="Firefox" data-size="104 MB">
+            <div class="app-icon firefox-icon" aria-hidden="true">
+              <span class="fox-fire">F</span>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>Mozilla Firefox</h3>
+                <span class="tag security">Security</span>
+              </div>
+              <p>Firefox Web Browser</p>
+              <div class="meta-row">
+                <span>128.6 → <strong>129.0</strong></span>
+                <span class="separator"></span>
+                <span>104 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show Firefox update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="Linux kernel" data-size="182 MB">
+            <div class="app-icon kernel-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="13"/><path d="M18 8v20M8 18h20M11 11l14 14M25 11 11 25"/><circle cx="18" cy="18" r="5"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>Linux kernel</h3>
+                <span class="tag recommended">Recommended</span>
+              </div>
+              <p>Core system kernel and modules</p>
+              <div class="meta-row">
+                <span>6.10.12 → <strong>6.11.5</strong></span>
+                <span class="separator"></span>
+                <span>182 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show Linux kernel update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="GNOME Shell" data-size="48.2 MB">
+            <div class="app-icon gnome-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M18 7c-7 0-12 5-12 12s5 11 12 11 12-4 12-11S25 7 18 7Z"/><path d="M11 20c3 1 11 1 14-1"/><circle cx="14" cy="16" r="1"/><circle cx="22" cy="15" r="1"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>GNOME Shell</h3>
+              </div>
+              <p>Desktop environment shell</p>
+              <div class="meta-row">
+                <span>47.1 → <strong>47.2</strong></span>
+                <span class="separator"></span>
+                <span>48.2 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show GNOME Shell update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="Thunderbird" data-size="29.7 MB">
+            <div class="app-icon thunderbird-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M8 24c1-11 7-17 16-18 3 0 5 2 5 5-6 0-10 3-12 8 4-1 8 0 11 3-4 6-12 8-20 2Z"/><path d="M10 26c4 1 8 1 12-1"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>Mozilla Thunderbird</h3>
+              </div>
+              <p>Mail, calendar and contacts</p>
+              <div class="meta-row">
+                <span>128.3 → <strong>128.4</strong></span>
+                <span class="separator"></span>
+                <span>29.7 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show Thunderbird update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="Packagekit" data-size="11 MB">
+            <div class="app-icon package-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="m18 6 11 6v12l-11 6-11-6V12Z"/><path d="m7 12 11 6 11-6M18 18v12M12.5 9l11 6"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>Packagekit</h3>
+                <span class="tag package">Package</span>
+              </div>
+              <p>System package management service</p>
+              <div class="meta-row">
+                <span>1.2.8 → <strong>1.2.9</strong></span>
+                <span class="separator"></span>
+                <span>11 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show Packagekit update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="LibreOffice" data-size="72 MB">
+            <div class="app-icon libre-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M10 6h12l6 6v18H10Z"/><path d="M22 6v7h6M14 19h10M14 23h8"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>LibreOffice</h3>
+              </div>
+              <p>Office productivity suite</p>
+              <div class="meta-row">
+                <span>24.2.6 → <strong>24.8.1</strong></span>
+                <span class="separator"></span>
+                <span>72 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show LibreOffice update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="PipeWire" data-size="8.5 MB">
+            <div class="app-icon pipe-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="12"/><circle cx="18" cy="18" r="5"/><path d="M18 6v7M18 23v7M6 18h7M23 18h7"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>PipeWire</h3>
+              </div>
+              <p>Multimedia processing engine</p>
+              <div class="meta-row">
+                <span>1.2.4 → <strong>1.2.5</strong></span>
+                <span class="separator"></span>
+                <span>8.5 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show PipeWire update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+
+          <article class="update-card" data-name="Fedora translations" data-size="9.3 MB">
+            <div class="app-icon translation-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36"><path d="M7 10h22M18 10v18M11 16c2 5 6 9 12 12M25 16c-2 5-6 9-12 12"/></svg>
+            </div>
+            <div class="update-details">
+              <div class="title-row">
+                <h3>Fedora translations</h3>
+                <span class="tag package">Package</span>
+              </div>
+              <p>Language packs and localization files</p>
+              <div class="meta-row">
+                <span>41.2024 → <strong>41.2025</strong></span>
+                <span class="separator"></span>
+                <span>9.3 MB</span>
+              </div>
+            </div>
+            <button class="more-button" type="button" aria-label="Show Fedora translations update details">
+              <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+            </button>
+            <button class="update-button" type="button">Update</button>
+          </article>
+        </div>
+      </main>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+        <input id="searchInput" type="search" placeholder="Search updates" autocomplete="off" />
+        <button id="closeSearch" type="button">Esc</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status">
+      <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 7"/></svg>
+      <span>Updates checked</span>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

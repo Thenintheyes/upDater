@@ -1,0 +1,653 @@
+{
+  "packages": [
+    {
+      "name": "7zip",
+      "arch": "x86_64",
+      "version": "26.06-1.fc44",
+      "repository": "updates",
+      "size": "3.3 MiB",
+      "old_version": "26.04-1.fc44"
+    },
+    {
+      "name": "PackageKit",
+      "arch": "x86_64",
+      "version": "1.4.0-3.fc44",
+      "repository": "updates",
+      "size": "3.7 MiB",
+      "old_version": "1.4.0-2.fc44"
+    },
+    {
+      "name": "PackageKit-command-not-found",
+      "arch": "x86_64",
+      "version": "1.4.0-3.fc44",
+      "repository": "updates",
+      "size": "34.9 KiB",
+      "old_version": "1.4.0-2.fc44"
+    },
+    {
+      "name": "PackageKit-glib",
+      "arch": "x86_64",
+      "version": "1.4.0-3.fc44",
+      "repository": "updates",
+      "size": "537.3 KiB",
+      "old_version": "1.4.0-2.fc44"
+    },
+    {
+      "name": "PackageKit-gstreamer-plugin",
+      "arch": "x86_64",
+      "version": "1.4.0-3.fc44",
+      "repository": "updates",
+      "size": "23.6 KiB",
+      "old_version": "1.4.0-2.fc44"
+    },
+    {
+      "name": "PackageKit-gtk3-module",
+      "arch": "x86_64",
+      "version": "1.4.0-3.fc44",
+      "repository": "updates",
+      "size": "19.5 KiB",
+      "old_version": "1.4.0-2.fc44"
+    },
+    {
+      "name": "code",
+      "arch": "x86_64",
+      "version": "1.147.0-1794903054.el8",
+      "repository": "code",
+      "size": "1.1 GiB",
+      "old_version": "1.145.3-1794015219.el8"
+    },
+    {
+      "name": "epiphany-runtime",
+      "arch": "x86_64",
+      "version": "1:50.6-6.fc44",
+      "repository": "updates",
+      "size": "6.8 MiB",
+      "old_version": "1:50.6-1.fc44"
+    },
+    {
+      "name": "firefox",
+      "arch": "x86_64",
+      "version": "160.0-1.fc44",
+      "repository": "updates",
+      "size": "299.5 MiB",
+      "old_version": "159.0.1-1.fc44"
+    },
+    {
+      "name": "firefox-langpacks",
+      "arch": "x86_64",
+      "version": "160.0-1.fc44",
+      "repository": "updates",
+      "size": "48.8 MiB",
+      "old_version": "159.0.1-1.fc44"
+    },
+    {
+      "name": "freerdp-libs",
+      "arch": "x86_64",
+      "version": "2:3.33.1-1.fc44",
+      "repository": "updates",
+      "size": "4.1 MiB",
+      "old_version": "2:3.32.2-1.fc44"
+    },
+    {
+      "name": "fribidi",
+      "arch": "i686",
+      "version": "1.0.18-1.fc44",
+      "repository": "updates",
+      "size": "409.3 KiB",
+      "old_version": "1.0.16-4.fc44"
+    },
+    {
+      "name": "fribidi",
+      "arch": "x86_64",
+      "version": "1.0.18-1.fc44",
+      "repository": "updates",
+      "size": "407.2 KiB",
+      "old_version": "1.0.16-4.fc44"
+    },
+    {
+      "name": "git",
+      "arch": "x86_64",
+      "version": "2.56.1-1.fc44",
+      "repository": "updates",
+      "size": "57.7 KiB",
+      "old_version": "2.56.0-1.fc44"
+    },
+    {
+      "name": "git-core",
+      "arch": "x86_64",
+      "version": "2.56.1-1.fc44",
+      "repository": "updates",
+      "size": "27.7 MiB",
+      "old_version": "2.56.0-1.fc44"
+    },
+    {
+      "name": "git-core-doc",
+      "arch": "noarch",
+      "version": "2.56.1-1.fc44",
+      "repository": "updates",
+      "size": "19.1 MiB",
+      "old_version": "2.56.0-1.fc44"
+    },
+    {
+      "name": "httpd",
+      "arch": "x86_64",
+      "version": "2.4.71-1.fc44",
+      "repository": "updates",
+      "size": "56.6 KiB",
+      "old_version": "2.4.69-1.fc44"
+    },
+    {
+      "name": "httpd-core",
+      "arch": "x86_64",
+      "version": "2.4.71-1.fc44",
+      "repository": "updates",
+      "size": "4.5 MiB",
+      "old_version": "2.4.69-1.fc44"
+    },
+    {
+      "name": "httpd-filesystem",
+      "arch": "noarch",
+      "version": "2.4.71-1.fc44",
+      "repository": "updates",
+      "size": "464.0   B",
+      "old_version": "2.4.69-1.fc44"
+    },
+    {
+      "name": "httpd-tools",
+      "arch": "x86_64",
+      "version": "2.4.71-1.fc44",
+      "repository": "updates",
+      "size": "198.1 KiB",
+      "old_version": "2.4.69-1.fc44"
+    },
+    {
+      "name": "java-25-openjdk-crypto-adapter",
+      "arch": "x86_64",
+      "version": "1:25.0.5.0.8-3.1.fc44",
+      "repository": "updates",
+      "size": "506.4 KiB",
+      "old_version": "1:25.0.4.1.1-1.1.fc44"
+    },
+    {
+      "name": "java-25-openjdk-headless",
+      "arch": "x86_64",
+      "version": "1:25.0.5.0.8-3.1.fc44",
+      "repository": "updates",
+      "size": "237.0 MiB",
+      "old_version": "1:25.0.4.1.1-1.1.fc44"
+    },
+    {
+      "name": "kernel-tools",
+      "arch": "x86_64",
+      "version": "7.3.4-200.fc44",
+      "repository": "updates",
+      "size": "872.1 KiB",
+      "old_version": "7.3.3-200.fc44"
+    },
+    {
+      "name": "kernel-tools-libs",
+      "arch": "x86_64",
+      "version": "7.3.4-200.fc44",
+      "repository": "updates",
+      "size": "30.2 KiB",
+      "old_version": "7.3.3-200.fc44"
+    },
+    {
+      "name": "kf6-filesystem",
+      "arch": "x86_64",
+      "version": "6.32.0-1.fc44",
+      "repository": "updates",
+      "size": "1.5 KiB",
+      "old_version": "6.31.0-1.fc44"
+    },
+    {
+      "name": "kf6-karchive",
+      "arch": "x86_64",
+      "version": "6.32.0-1.fc44",
+      "repository": "updates",
+      "size": "883.5 KiB",
+      "old_version": "6.31.0-1.fc44"
+    },
+    {
+      "name": "kf6-kimageformats",
+      "arch": "x86_64",
+      "version": "6.32.0-1.fc44",
+      "repository": "updates",
+      "size": "3.1 MiB",
+      "old_version": "6.31.0-1.fc44"
+    },
+    {
+      "name": "libaom",
+      "arch": "i686",
+      "version": "3.15.3-1.fc44",
+      "repository": "updates",
+      "size": "3.9 MiB",
+      "old_version": "3.15.2-1.fc44"
+    },
+    {
+      "name": "libaom",
+      "arch": "x86_64",
+      "version": "3.15.3-1.fc44",
+      "repository": "updates",
+      "size": "5.4 MiB",
+      "old_version": "3.15.2-1.fc44"
+    },
+    {
+      "name": "libodfgen",
+      "arch": "x86_64",
+      "version": ".1.9-1.fc44",
+      "repository": "updates",
+      "size": "765.8 KiB",
+      "old_version": ".1.8-16.fc44"
+    },
+    {
+      "name": "librepo",
+      "arch": "x86_64",
+      "version": "1.22.0-1.fc44",
+      "repository": "updates",
+      "size": "257.0 KiB",
+      "old_version": "1.21.2-1.fc44"
+    },
+    {
+      "name": "libvirt-client",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "996.4 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "735.7 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-common",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "457.3 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-config-network",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "470.0   B",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-interface",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "758.4 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-network",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "888.2 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-nodedev",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "823.1 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-nwfilter",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "848.1 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-qemu",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "2.9 MiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-secret",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "750.2 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "0.0   B",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-core",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "903.2 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-disk",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "27.7 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-gluster",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "35.1 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-iscsi",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "19.6 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-iscsi-direct",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "27.7 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-logical",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "27.8 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-mpath",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "15.5 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-rbd",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "39.9 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-driver-storage-scsi",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "19.6 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-kvm",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "0.0   B",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-lock",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "99.5 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-log",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "110.3 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-plugin-lockd",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "27.5 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-daemon-proxy",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "733.5 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-libs",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "30.3 MiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libvirt-ssh-proxy",
+      "arch": "x86_64",
+      "version": "12.0.0-6.fc44",
+      "repository": "updates",
+      "size": "19.7 KiB",
+      "old_version": "12.0.0-5.fc44"
+    },
+    {
+      "name": "libwinpr",
+      "arch": "x86_64",
+      "version": "2:3.33.1-1.fc44",
+      "repository": "updates",
+      "size": "1.4 MiB",
+      "old_version": "2:3.32.2-1.fc44"
+    },
+    {
+      "name": "libxmlb",
+      "arch": "x86_64",
+      "version": ".3.30-1.fc44",
+      "repository": "updates",
+      "size": "292.6 KiB",
+      "old_version": ".3.29-1.fc44"
+    },
+    {
+      "name": "m17n-db",
+      "arch": "noarch",
+      "version": "1.8.17-1.fc44",
+      "repository": "updates",
+      "size": "2.5 MiB",
+      "old_version": "1.8.15-1.fc44"
+    },
+    {
+      "name": "mesa-dri-drivers",
+      "arch": "i686",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "56.7 MiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-dri-drivers",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "53.2 MiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-filesystem",
+      "arch": "i686",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "3.6 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-filesystem",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "3.6 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-libEGL",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "398.4 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-libGL",
+      "arch": "i686",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "349.5 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-libGL",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "374.2 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-libgbm",
+      "arch": "i686",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "18.8 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-libgbm",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "19.5 KiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-vulkan-drivers",
+      "arch": "i686",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "179.0 MiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mesa-vulkan-drivers",
+      "arch": "x86_64",
+      "version": "26.2.7-1.fc44",
+      "repository": "updates",
+      "size": "174.0 MiB",
+      "old_version": "26.2.6-1.fc44"
+    },
+    {
+      "name": "mod_http2",
+      "arch": "x86_64",
+      "version": "2.0.42-2.fc44",
+      "repository": "updates",
+      "size": "436.2 KiB",
+      "old_version": "2.0.39-1.fc44"
+    },
+    {
+      "name": "mod_lua",
+      "arch": "x86_64",
+      "version": "2.4.71-1.fc44",
+      "repository": "updates",
+      "size": "137.6 KiB",
+      "old_version": "2.4.69-1.fc44"
+    },
+    {
+      "name": "mtools",
+      "arch": "x86_64",
+      "version": "4.0.50-1.fc44",
+      "repository": "updates",
+      "size": "354.6 KiB",
+      "old_version": "4.0.49-3.fc44"
+    },
+    {
+      "name": "passim",
+      "arch": "x86_64",
+      "version": ".1.13-1.fc44",
+      "repository": "updates",
+      "size": "242.1 KiB",
+      "old_version": ".1.12-1.fc44"
+    },
+    {
+      "name": "passim-libs",
+      "arch": "x86_64",
+      "version": ".1.13-1.fc44",
+      "repository": "updates",
+      "size": "70.0 KiB",
+      "old_version": ".1.12-1.fc44"
+    },
+    {
+      "name": "perl-Git",
+      "arch": "noarch",
+      "version": "2.56.1-1.fc44",
+      "repository": "updates",
+      "size": "64.4 KiB",
+      "old_version": "2.56.0-1.fc44"
+    },
+    {
+      "name": "python3-perf",
+      "arch": "x86_64",
+      "version": "7.3.4-200.fc44",
+      "repository": "updates",
+      "size": "10.2 MiB",
+      "old_version": "7.3.3-200.fc44"
+    },
+    {
+      "name": "qt6-qtdeclarative",
+      "arch": "x86_64",
+      "version": "6.11.2-3.fc44",
+      "repository": "updates",
+      "size": "59.3 MiB",
+      "old_version": "6.11.2-2.fc44"
+    }
+  ],
+  "count": 80,
+  "installing": 5,
+  "replacing": 80,
+  "removing": 5,
+  "download_size": "878 MiB",
+  "extra_size": "69 MiB",
+  "install_size": "3 GiB",
+  "remove_size": "2 GiB",
+  "error": null
+}
