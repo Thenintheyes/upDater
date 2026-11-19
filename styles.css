@@ -330,6 +330,7 @@ button { cursor: pointer; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.app-icon img.brand-icon { width: 36px; height: 36px; }
 .firefox-icon {
   background: linear-gradient(135deg, #ff963b 0%, #8b28dc 58%, #2f75de 100%);
   font-weight: 900;

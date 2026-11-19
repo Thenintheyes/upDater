@@ -41,13 +41,38 @@ function bindCard(card) {
   });
 }
 
+const packageIcons = [
+  { match: /^(firefox|firefox-langpacks)$/, className: "firefox-icon", iconUrl: "https://api.iconify.design/logos/firefox.svg" },
+  { match: /^(code|code-insiders|vscode|visual-studio-code)$/, className: "vscode-icon", iconUrl: "https://api.iconify.design/logos/visual-studio-code.svg" },
+  { match: /^(thunderbird|thunderbird-langpacks)$/, className: "thunderbird-icon", iconUrl: "https://cdn.simpleicons.org/thunderbird" },
+  { match: /^(libreoffice|libreoffice-.*)$/, className: "libre-icon", iconUrl: "https://cdn.simpleicons.org/libreoffice" },
+  { match: /^(git|git-.*|.*-git(?:-.*)?)$/, className: "git-icon", iconUrl: "https://api.iconify.design/logos/git.svg" },
+  { match: /^(python|python3|python3-libs|python3-.*)$/, className: "python-icon", iconUrl: "https://api.iconify.design/logos/python.svg" },
+  { match: /^(kernel|kernel-.*)$/, className: "kernel-icon", iconUrl: "https://cdn.simpleicons.org/linux" },
+  { match: /^(gnome|gnome-.*)$/, className: "gnome-icon", iconUrl: "https://api.iconify.design/logos/gnome.svg" }
+];
+
+function getPackageIcon(name) {
+  const icon = packageIcons.find(({ match }) => match.test(name.toLowerCase()));
+  if (icon) {
+    return {
+      className: icon.className,
+      markup: `<img class="brand-icon" src="${icon.iconUrl}" alt="" loading="lazy">`
+    };
+  }
+  return {
+    className: "package-icon",
+    markup: `<span>${escapeHtml(name.slice(0, 2).toUpperCase())}</span>`
+  };
+}
+
 function renderPackages(packages) {
   updateList.innerHTML = packages.map((pkg) => {
     const oldVersion = pkg.old_version ? pkg.old_version : "installed";
-    const initial = escapeHtml(pkg.name.slice(0, 2).toUpperCase());
+    const icon = getPackageIcon(pkg.name);
     return `
       <article class="update-card" data-name="${escapeHtml(pkg.name)}" data-package="${escapeHtml(pkg.name)}" data-size="${escapeHtml(pkg.size)}">
-        <div class="app-icon package-icon" aria-hidden="true"><span>${initial}</span></div>
+        <div class="app-icon ${icon.className}" aria-hidden="true">${icon.markup}</div>
         <div class="update-details">
           <div class="title-row">
             <h3>${escapeHtml(pkg.name)}</h3>
