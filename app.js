@@ -73,7 +73,15 @@ function renderPackages(packages) {
 async function loadUpdates(refresh = false) {
   try {
     const response = await fetch(`/api/updates${refresh ? "?refresh=1" : ""}`);
-    const data = await response.json();
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      throw new Error("The update service returned an invalid response");
+    }
+    if (!response.ok) {
+      throw new Error(data.error || "The update service is unavailable");
+    }
     if (data.error && (!data.packages || !data.packages.length)) {
       showToast(data.error);
     }
@@ -86,7 +94,7 @@ async function loadUpdates(refresh = false) {
     document.getElementById("installSize").textContent =
       data.extra_size ? `${data.extra_size} extra` : "0 MiB";
   } catch (error) {
-    showToast("Could not read DNF package updates");
+    showToast(error instanceof Error ? error.message : "Could not read DNF package updates");
   }
 }
 
