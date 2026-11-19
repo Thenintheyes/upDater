@@ -18,27 +18,55 @@ function bindCard(card) {
   card.querySelector(".update-button").addEventListener("click", async (event) => {
     const button = event.currentTarget;
     if (button.disabled) return;
-    button.textContent = "Updating";
-    button.disabled = true;
-    card.classList.add("updating");
-    try {
-      await fetch("/api/upgrade", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ package: card.dataset.package })
-      });
-      showToast(`${card.dataset.name} update started`);
-    } catch {
-      button.textContent = "Update";
-      button.disabled = false;
-      card.classList.remove("updating");
-      showToast("Could not start the package update");
-    }
+    await startUpgrade(card, button, card.dataset.package);
   });
 
   card.querySelector(".more-button").addEventListener("click", () => {
     showToast(`${card.dataset.name}: ${card.dataset.size} download`);
   });
+}
+
+function setUpgradeProgress(button, updating) {
+  button.disabled = updating;
+  button.classList.toggle("progressing", updating);
+  button.innerHTML = updating
+    ? '<span class="button-label">Updating</span><span class="progress-track"><span></span></span>'
+    : "Update";
+}
+
+async function startUpgrade(card, button, packageName) {
+  setUpgradeProgress(button, true);
+  card.classList.add("updating");
+  try {
+    const response = await fetch("/api/upgrade", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ package: packageName })
+    });
+    const data = await response.json();
+    if (!response.ok || !data.job) {
+      throw new Error(data.error || "Could not start the package update");
+    }
+    showToast(`${card.dataset.name} update started`);
+    await waitForUpgrade(data.job);
+    await loadUpdates(true);
+    showToast(`${card.dataset.name} updated successfully`);
+  } catch (error) {
+    setUpgradeProgress(button, false);
+    card.classList.remove("updating");
+    showToast(error instanceof Error ? error.message : "Could not update the package");
+  }
+}
+
+async function waitForUpgrade(job) {
+  while (true) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const response = await fetch(`/api/upgrade/status?job=${encodeURIComponent(job)}`);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "Could not read update progress");
+    if (data.status === "completed") return;
+    if (data.status === "failed") throw new Error(data.error || "Package update failed");
+  }
 }
 
 const packageIcons = [
@@ -140,27 +168,6 @@ document.querySelectorAll(".nav-item").forEach((item) => {
   });
 });
 
-cards.forEach((card) => {
-  card.querySelector(".update-button").addEventListener("click", (event) => {
-    const button = event.currentTarget;
-    if (button.disabled) return;
-    button.textContent = "Updating";
-    button.disabled = true;
-    card.classList.add("updating");
-    setTimeout(() => {
-      card.classList.remove("updating");
-      card.classList.add("updated");
-      button.textContent = "Installed";
-      showToast(`${card.dataset.name} updated successfully`);
-      updateRemainingCount();
-    }, 850);
-  });
-
-  card.querySelector(".more-button").addEventListener("click", () => {
-    showToast(`${card.dataset.name}: ${card.dataset.size} download`);
-  });
-});
-
 function updateRemainingCount() {
   const remaining = cards.filter((card) =>
     !card.querySelector(".update-button").disabled
@@ -178,30 +185,36 @@ document.getElementById("updateAllButton").addEventListener("click", (event) => 
   if (button.classList.contains("updating")) return;
   button.classList.add("updating");
   button.querySelector("span").textContent = "Updating";
+  cards.forEach((card) => {
+    const updateButton = card.querySelector(".update-button");
+    if (!updateButton.disabled) {
+      setUpgradeProgress(updateButton, true);
+      card.classList.add("updating");
+    }
+  });
   fetch("/api/upgrade", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({})
-  }).catch(() => showToast("Could not start the system update"));
-  cards.forEach((card, index) => {
-    const updateButton = card.querySelector(".update-button");
-    if (updateButton.disabled) return;
-    setTimeout(() => {
-      updateButton.textContent = "Updating";
-      updateButton.disabled = true;
-      card.classList.add("updating");
-      setTimeout(() => {
+  }).then(async (response) => {
+    const data = await response.json();
+    if (!response.ok || !data.job) throw new Error(data.error || "Could not start the system update");
+    await waitForUpgrade(data.job);
+    await loadUpdates(true);
+    button.classList.remove("updating");
+    button.querySelector("span").textContent = "Update all";
+    showToast("All updates installed");
+  }).catch((error) => {
+    cards.forEach((card) => {
+      const updateButton = card.querySelector(".update-button");
+      if (updateButton.classList.contains("progressing")) {
+        setUpgradeProgress(updateButton, false);
         card.classList.remove("updating");
-        card.classList.add("updated");
-        updateButton.textContent = "Installed";
-        updateRemainingCount();
-        if (index === cards.length - 1) {
-          button.classList.remove("updating");
-          button.querySelector("span").textContent = "Updated";
-          showToast("All updates installed");
-        }
-      }, 600);
-    }, index * 180);
+      }
+    });
+    button.classList.remove("updating");
+    button.querySelector("span").textContent = "Update all";
+    showToast(error instanceof Error ? error.message : "Could not start the system update");
   });
 });
 

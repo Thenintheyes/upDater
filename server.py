@@ -4,6 +4,8 @@ import re
 import subprocess
 import threading
 import urllib.parse
+import uuid
+from queue import Queue
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 
@@ -20,6 +22,11 @@ EXTRA_RE = re.compile(
     r"\(install (.+?), remove (.+?)\)\.",
     re.MULTILINE,
 )
+UPGRADE_JOBS = {}
+UPGRADE_JOBS_LOCK = threading.Lock()
+UPGRADE_QUEUE = Queue()
+UPGRADE_WORKER = None
+UPGRADE_WORKER_LOCK = threading.Lock()
 
 
 def parse_dnf(output):
@@ -107,6 +114,74 @@ def get_updates(refresh=False):
         return refresh_updates()
 
 
+def start_upgrade(package=None):
+    if package and not re.fullmatch(r"[A-Za-z0-9_.+@:-]+", package):
+        raise ValueError("Invalid package name")
+    job_id = uuid.uuid4().hex
+    with UPGRADE_JOBS_LOCK:
+        UPGRADE_JOBS[job_id] = {"status": "running", "package": package}
+    UPGRADE_QUEUE.put((job_id, package or ""))
+    ensure_upgrade_worker()
+    return job_id
+
+
+def ensure_upgrade_worker():
+    global UPGRADE_WORKER
+    with UPGRADE_WORKER_LOCK:
+        if UPGRADE_WORKER and UPGRADE_WORKER.is_alive():
+            return
+        UPGRADE_WORKER = threading.Thread(target=upgrade_worker, daemon=True)
+        UPGRADE_WORKER.start()
+
+
+def upgrade_worker():
+    command = [
+        "pkexec", "sh", "-c",
+        (
+            "while IFS= read -r package; do "
+            "if [ -n \"$package\" ]; then "
+            "dnf -y upgrade \"$package\" >/dev/null 2>&1; "
+            "else dnf -y upgrade >/dev/null 2>&1; fi; "
+            "return_code=$?; "
+            "printf '__UPDATER_DONE__:%s\\n' \"$return_code\"; "
+            "done"
+        ),
+    ]
+    process = subprocess.Popen(
+        command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL, text=True, bufsize=1,
+    )
+    while True:
+        job_id, package = UPGRADE_QUEUE.get()
+        try:
+            if process.poll() is not None:
+                raise RuntimeError("The authenticated package worker stopped")
+            process.stdin.write(package + "\n")
+            process.stdin.flush()
+            marker = process.stdout.readline().strip()
+            match = re.fullmatch(r"__UPDATER_DONE__:(\d+)", marker)
+            if not match:
+                raise RuntimeError("The package worker returned an invalid status")
+            return_code = int(match.group(1))
+            if return_code == 0:
+                refresh_updates()
+            with UPGRADE_JOBS_LOCK:
+                job = UPGRADE_JOBS[job_id]
+                job["status"] = "completed" if return_code == 0 else "failed"
+                job["returncode"] = return_code
+                if return_code != 0:
+                    job["error"] = "Package update failed"
+        except Exception as exc:
+            with UPGRADE_JOBS_LOCK:
+                job = UPGRADE_JOBS[job_id]
+                job["status"] = "failed"
+                job["error"] = str(exc)
+            if process.poll() is not None:
+                break
+        finally:
+            UPGRADE_QUEUE.task_done()
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -128,6 +203,15 @@ class Handler(SimpleHTTPRequestHandler):
             except Exception as exc:
                 self.json_response({"error": str(exc), "packages": [], "count": 0}, 500)
             return
+        if parsed.path == "/api/upgrade/status":
+            job_id = urllib.parse.parse_qs(parsed.query).get("job", [None])[0]
+            with UPGRADE_JOBS_LOCK:
+                job = UPGRADE_JOBS.get(job_id)
+            if not job:
+                self.json_response({"error": "Upgrade job not found"}, 404)
+            else:
+                self.json_response(job)
+            return
         super().do_GET()
 
     def do_POST(self):
@@ -145,20 +229,8 @@ class Handler(SimpleHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", "0"))
             payload = json.loads(self.rfile.read(length) or b"{}")
             package = payload.get("package")
-            command = ["pkexec", "dnf", "-y", "upgrade"]
-            if package:
-                if not re.fullmatch(r"[A-Za-z0-9_.+@:-]+", package):
-                    self.json_response({"error": "Invalid package name"}, 400)
-                    return
-                command.append(package)
-            process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-            def refresh_after_upgrade():
-                process.wait()
-                refresh_updates()
-
-            threading.Thread(target=refresh_after_upgrade, daemon=True).start()
-            self.json_response({"started": True, "package": package})
+            job_id = start_upgrade(package)
+            self.json_response({"started": True, "job": job_id, "package": package})
         except Exception as exc:
             self.json_response({"error": str(exc)}, 500)
 

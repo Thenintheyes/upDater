@@ -386,6 +386,8 @@ button { cursor: pointer; }
   stroke-linejoin: round;
 }
 .update-button {
+  position: relative;
+  overflow: hidden;
   height: 34px;
   border: 1px solid #ccd6dc;
   border-radius: 7px;
@@ -396,6 +398,36 @@ button { cursor: pointer; }
 }
 .update-button:hover { border-color: #78a8d4; background: #f7fbff; color: #327bbd; }
 .update-button:disabled { color: #4f915f; border-color: #bdd8c5; background: #eef7f1; cursor: default; }
+.update-button.progressing {
+  display: grid;
+  place-items: center;
+  color: #327bbd;
+  border-color: #78a8d4;
+  background: #f7fbff;
+}
+.button-label { position: relative; z-index: 1; }
+.progress-track {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  left: 4px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #d7e8f7;
+}
+.progress-track span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  animation: progress-slide 1.15s ease-in-out infinite;
+}
+@keyframes progress-slide {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(260%); }
+}
 
 .search-overlay {
   position: fixed;

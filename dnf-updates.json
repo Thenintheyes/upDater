@@ -1,54 +1,6 @@
 {
   "packages": [
     {
-      "name": "7zip",
-      "arch": "x86_64",
-      "version": "26.06-1.fc44",
-      "repository": "updates",
-      "size": "3.3 MiB",
-      "old_version": "26.04-1.fc44"
-    },
-    {
-      "name": "PackageKit",
-      "arch": "x86_64",
-      "version": "1.4.0-3.fc44",
-      "repository": "updates",
-      "size": "3.7 MiB",
-      "old_version": "1.4.0-2.fc44"
-    },
-    {
-      "name": "PackageKit-command-not-found",
-      "arch": "x86_64",
-      "version": "1.4.0-3.fc44",
-      "repository": "updates",
-      "size": "34.9 KiB",
-      "old_version": "1.4.0-2.fc44"
-    },
-    {
-      "name": "PackageKit-glib",
-      "arch": "x86_64",
-      "version": "1.4.0-3.fc44",
-      "repository": "updates",
-      "size": "537.3 KiB",
-      "old_version": "1.4.0-2.fc44"
-    },
-    {
-      "name": "PackageKit-gstreamer-plugin",
-      "arch": "x86_64",
-      "version": "1.4.0-3.fc44",
-      "repository": "updates",
-      "size": "23.6 KiB",
-      "old_version": "1.4.0-2.fc44"
-    },
-    {
-      "name": "PackageKit-gtk3-module",
-      "arch": "x86_64",
-      "version": "1.4.0-3.fc44",
-      "repository": "updates",
-      "size": "19.5 KiB",
-      "old_version": "1.4.0-2.fc44"
-    },
-    {
       "name": "code",
       "arch": "x86_64",
       "version": "1.147.0-1794903054.el8",
@@ -103,62 +55,6 @@
       "repository": "updates",
       "size": "407.2 KiB",
       "old_version": "1.0.16-4.fc44"
-    },
-    {
-      "name": "git",
-      "arch": "x86_64",
-      "version": "2.56.1-1.fc44",
-      "repository": "updates",
-      "size": "57.7 KiB",
-      "old_version": "2.56.0-1.fc44"
-    },
-    {
-      "name": "git-core",
-      "arch": "x86_64",
-      "version": "2.56.1-1.fc44",
-      "repository": "updates",
-      "size": "27.7 MiB",
-      "old_version": "2.56.0-1.fc44"
-    },
-    {
-      "name": "git-core-doc",
-      "arch": "noarch",
-      "version": "2.56.1-1.fc44",
-      "repository": "updates",
-      "size": "19.1 MiB",
-      "old_version": "2.56.0-1.fc44"
-    },
-    {
-      "name": "httpd",
-      "arch": "x86_64",
-      "version": "2.4.71-1.fc44",
-      "repository": "updates",
-      "size": "56.6 KiB",
-      "old_version": "2.4.69-1.fc44"
-    },
-    {
-      "name": "httpd-core",
-      "arch": "x86_64",
-      "version": "2.4.71-1.fc44",
-      "repository": "updates",
-      "size": "4.5 MiB",
-      "old_version": "2.4.69-1.fc44"
-    },
-    {
-      "name": "httpd-filesystem",
-      "arch": "noarch",
-      "version": "2.4.71-1.fc44",
-      "repository": "updates",
-      "size": "464.0   B",
-      "old_version": "2.4.69-1.fc44"
-    },
-    {
-      "name": "httpd-tools",
-      "arch": "x86_64",
-      "version": "2.4.71-1.fc44",
-      "repository": "updates",
-      "size": "198.1 KiB",
-      "old_version": "2.4.69-1.fc44"
     },
     {
       "name": "java-25-openjdk-crypto-adapter",
@@ -481,14 +377,6 @@
       "old_version": ".3.29-1.fc44"
     },
     {
-      "name": "m17n-db",
-      "arch": "noarch",
-      "version": "1.8.17-1.fc44",
-      "repository": "updates",
-      "size": "2.5 MiB",
-      "old_version": "1.8.15-1.fc44"
-    },
-    {
       "name": "mesa-dri-drivers",
       "arch": "i686",
       "version": "26.2.7-1.fc44",
@@ -585,54 +473,6 @@
       "old_version": "2.0.39-1.fc44"
     },
     {
-      "name": "mod_lua",
-      "arch": "x86_64",
-      "version": "2.4.71-1.fc44",
-      "repository": "updates",
-      "size": "137.6 KiB",
-      "old_version": "2.4.69-1.fc44"
-    },
-    {
-      "name": "mtools",
-      "arch": "x86_64",
-      "version": "4.0.50-1.fc44",
-      "repository": "updates",
-      "size": "354.6 KiB",
-      "old_version": "4.0.49-3.fc44"
-    },
-    {
-      "name": "passim",
-      "arch": "x86_64",
-      "version": ".1.13-1.fc44",
-      "repository": "updates",
-      "size": "242.1 KiB",
-      "old_version": ".1.12-1.fc44"
-    },
-    {
-      "name": "passim-libs",
-      "arch": "x86_64",
-      "version": ".1.13-1.fc44",
-      "repository": "updates",
-      "size": "70.0 KiB",
-      "old_version": ".1.12-1.fc44"
-    },
-    {
-      "name": "perl-Git",
-      "arch": "noarch",
-      "version": "2.56.1-1.fc44",
-      "repository": "updates",
-      "size": "64.4 KiB",
-      "old_version": "2.56.0-1.fc44"
-    },
-    {
-      "name": "python3-perf",
-      "arch": "x86_64",
-      "version": "7.3.4-200.fc44",
-      "repository": "updates",
-      "size": "10.2 MiB",
-      "old_version": "7.3.3-200.fc44"
-    },
-    {
       "name": "qt6-qtdeclarative",
       "arch": "x86_64",
       "version": "6.11.2-3.fc44",
@@ -641,13 +481,13 @@
       "old_version": "6.11.2-2.fc44"
     }
   ],
-  "count": 80,
+  "count": 60,
   "installing": 5,
-  "replacing": 80,
+  "replacing": 60,
   "removing": 5,
-  "download_size": "878 MiB",
+  "download_size": "862 MiB",
   "extra_size": "69 MiB",
-  "install_size": "3 GiB",
+  "install_size": "2 GiB",
   "remove_size": "2 GiB",
   "error": null
 }
